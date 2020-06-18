@@ -11,6 +11,11 @@
   margin-bottom: 2rem;
 }
 
+.header {
+  font-weight: bold;
+  border-bottom: 1px solid var(--gray);
+}
+
 .table {
   width: 100%;
   max-width: 100vw;
@@ -20,7 +25,6 @@
   }
 }
 
-.header {
+.total {
   font-weight: bold;
-  border-bottom: 1px solid var(--gray);
 }
