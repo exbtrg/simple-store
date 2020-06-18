@@ -1,0 +1,65 @@
+@import '../../scss/variables/media-queries.scss';
+
+.item {
+  border-bottom: 1px solid var(--secondary);
+}
+
+.button {
+  display: inline;
+  line-height: 0;
+  padding: .25rem;
+  background-color: transparent;
+  border-radius: 2px;
+  opacity: .8;
+  cursor: pointer;
+
+  &.minus {
+    border: 1px solid var(--blue);
+    fill: var(--blue);
+  }
+  
+  &.plus {
+    border: 1px solid var(--teal);
+    fill: var(--teal);
+  }
+  
+  &.trash {
+    border: 1px solid var(--warning);
+    fill: var(--warning);
+  }
+
+  @include mq-max($hands-max) {
+    &:not(:last-of-type) {
+      margin-bottom: .5rem;
+    }
+  }
+
+  @include mq-min($hands-min) {
+    &:not(:last-of-type) {
+      margin-right: .5rem;
+    }
+  }
+
+  
+
+  @include mq-hover() {
+    opacity: 1;
+  }
+  @include mq-animation() {
+    transition: .1s ease;
+  }
+}
+
+.action {
+  display: flex;
+  justify-content: flex-end;
+  @include mq-max($hands-max) {
+    flex-flow: column;
+    align-items: center;
+  }
+
+  svg {
+    max-height: 1rem;
+    width: 1rem;
+  }
+}

@@ -1,0 +1,20 @@
+@import '../../scss/variables/media-queries.scss';
+
+.products {
+  padding: 3rem 0;
+  display: flex;
+  @include mq-max($lap-max) {
+    flex-flow: column;
+  }
+  @include mq-min($lap-min) {
+    margin: 0 -1rem;
+  }
+
+  > div {
+    margin-bottom: 2rem;
+    @include mq-min($lap-min) {
+      margin: 0 1rem 0 1rem;
+    }
+    
+  }
+}

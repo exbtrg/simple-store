@@ -1,0 +1,44 @@
+@import '../../scss/variables/media-queries.scss';
+
+.card {
+  display: flex;
+  @include mq-max($hands-max) {
+    flex-flow: column;
+  }
+
+  @include mq-min($lap-min) {
+    max-width: 50%;
+  }
+
+  img {
+    max-width: 12rem;
+    margin-right: 2rem;
+  }
+}
+
+.info {
+  display: flex;
+  flex-flow: column;
+  padding: .5rem 0;
+
+  > button {
+    align-self: flex-start;
+    margin-top: auto;
+  }
+}
+
+.title,
+.author,
+.price {
+  margin-bottom: .5rem;
+}
+
+.title {
+  color: var(--cyan);
+  font-weight: bold;
+}
+
+.price {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
