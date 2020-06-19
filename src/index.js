@@ -4,12 +4,12 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import './index.scss'
 import store from './store'
-import SimpleStoreService from './services/simpleStoreService'
+import FakeApiService from './services/fakeApiService'
 import { SimpleStoreServiceProvider } from './contexts/simpleStoreServiceContext'
 import ErrorBoundry from './components/ErrorBoundry'
 import App from './components/App'
 
-const simpleStoreService = new SimpleStoreService()
+const simpleStoreService = new FakeApiService()
 
 ReactDOM.render(
   <Provider store={store}>
