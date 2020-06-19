@@ -4,7 +4,7 @@ import styles from './CardProduct.module.scss'
 import ImgWrapper from '../ImgWrapper'
 import Button from '../Button'
 
-const CardProduct = ({ imgUrl, title, author, price }) => (
+const CardProduct = ({ imgUrl, id, title, author, price, onAddedToCart }) => (
   <div className={styles.card}>
     <ImgWrapper imgUrl={imgUrl} alt={title} />
 
@@ -12,7 +12,7 @@ const CardProduct = ({ imgUrl, title, author, price }) => (
       <p className={styles.title}>{title}</p>
       <span className={styles.author}>{author}</span>
       <span className={styles.price}>{price}</span>
-      <Button label="Add to Cart" />
+      <Button label="Add to Cart" onClick={() => onAddedToCart(id)} />
     </div>
   </div>
 )

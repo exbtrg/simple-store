@@ -6,31 +6,49 @@ import { ReactComponent as MinusIcon } from './minus.svg'
 import { ReactComponent as PlusIcon } from './plus.svg'
 import { ReactComponent as TrashIcon } from './trash.svg'
 
-const CartItem = ({ title, price, index }) => (
-  <tr className={styles.item}>
-    <td>{index}</td>
+const CartItem = ({
+  id,
+  title,
+  totalPrice,
+  countItems,
+  index,
+  onIncrease,
+  onDecrease,
+  onDelete
+}) => (
+    <tr className={styles.item}>
+      <td>{index}</td>
 
-    <td className={styles.adaptive}>{title}</td>
+      <td className={styles.adaptive}>{title}</td>
 
-    <td>2</td>
+      <td>{countItems}</td>
 
-    <td>{price}</td>
+      <td>{totalPrice}</td>
 
-    <td className={styles.action}>
-      <button className={cn(styles.button, styles.minus)}>
-        <MinusIcon />
-      </button>
+      <td className={styles.action}>
+        <button
+          className={cn(styles.button, styles.minus)}
+          onClick={() => onIncrease(id)}
+        >
+          <MinusIcon />
+        </button>
 
-      <button className={cn(styles.button, styles.plus)}>
-        <PlusIcon />
-      </button>
+        <button
+          className={cn(styles.button, styles.plus)}
+          onClick={() => onDecrease(id)}
+        >
+          <PlusIcon />
+        </button>
 
-      <button className={cn(styles.button, styles.trash)}>
-        <TrashIcon />
-      </button>
-    </td>
-  </tr>
-)
+        <button
+          className={cn(styles.button, styles.trash)}
+          onClick={() => onDelete(id)}
+        >
+          <TrashIcon />
+        </button>
+      </td>
+    </tr>
+  )
 
 CartItem.propTypes = {
   // PropTypes here

@@ -1,14 +1,21 @@
+import {
+  fetchBooksRequest,
+  fetchBooksSuccess,
+  fetchBooksFailure,
+  addedBooksToCart
+} from './actionTypes'
+
 const booksRequested = () => ({
-  type: 'FETCH_BOOKS_REQUEST'
+  type: fetchBooksRequest
 })
 
 const booksLoaded = (newBooks) => ({
-  type: 'FETCH_BOOKS_SUCCESS',
+  type: fetchBooksSuccess,
   payload: newBooks
 })
 
 const requestError = (error) => ({
-  type: 'FETCH_BOOKS_FAILURE',
+  type: fetchBooksFailure,
   payload: error
 })
 
@@ -24,6 +31,12 @@ const fetchBooks = (dispatch, simpleStoreService) => () => {
     })
 }
 
+const addBooksToCard = (id) => ({
+  type: addedBooksToCart,
+  payload: id
+})
+
 export {
-  fetchBooks
+  fetchBooks,
+  addBooksToCard
 }

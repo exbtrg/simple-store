@@ -1,21 +1,11 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import styles from './Cart.module.scss'
 import CartItem from './CartItem'
 import Button from '../Button'
 
-const items = [
-  {
-    title: 'Web Development with Node and Express',
-    price: '$34'
-  },
-  {
-    title: 'Pro Express.js',
-    price: '$97'
-  }
-]
-
-const Cart = () => (
+const Cart = ({ cartItems, total, onIncrease, onDecrease, onDelete }) => (
   <div className={styles.cart}>
     <h2 className={styles.title}>You Order</h2>
 
@@ -31,13 +21,20 @@ const Cart = () => (
       </thead>
 
       <tbody>
-        {items.map((itemData, index) => (
-          <CartItem key={itemData.title} index={index + 1} {...itemData} />
+        {cartItems.map((itemData, index) => (
+          <CartItem
+            key={itemData.title}
+            index={index + 1}
+            onIncrease={onIncrease}
+            onDecrease={onDecrease}
+            onDelete={onDelete}
+            {...itemData}
+          />
         ))}
       </tbody>
     </table>
 
-    <div className={styles.total}>Total: $200</div>
+    <div className={styles.total}>Total: {total}</div>
 
     <Button label="Checkout" />
   </div>
@@ -52,4 +49,12 @@ Cart.defaultProps = {
   // defaultProps here
 }
 
-export default Cart
+const mapStateToProps = ({ cartItems, orderTotal }) => ({ cartItems, orderTotal })
+
+const mapDispatchToProps = (dispatch) => ({
+  onIncrease: (id) => { console.log('INC' + id) },
+  onDecrease: (id) => { console.log('DEC' + id) },
+  onDelete: (id) => { console.log('DEL' + id) }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cart)
