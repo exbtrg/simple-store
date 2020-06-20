@@ -17,7 +17,6 @@ const CartItem = ({
   onDelete
 }) => (
     <tr className={styles.item}>
-      {console.log(totalPrice, countItems)}
 
       <td>{index}</td>
 

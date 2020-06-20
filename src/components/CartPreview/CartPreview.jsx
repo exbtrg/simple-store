@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import styles from './CartPreview.module.scss'
 import { ReactComponent as CartIcon } from './cart.svg'
 
-const CartPreview = () => (
+const CartPreview = ({ quantityInOrder, orderTotal }) => (
   <div className={styles.cart}>
     <CartIcon />
-    <p>5 items ($200)</p>
+    <p>{quantityInOrder} items ({orderTotal})</p>
   </div>
 )
 

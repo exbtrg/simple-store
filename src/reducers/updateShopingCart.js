@@ -38,6 +38,12 @@ const updateCartItem = (book, item = {}, quantity) => {
   }
 }
 
+const updateAmountCalc = (arr, key) => {
+  return arr.reduce((acc, item) => (
+    acc + item[key]
+  ), 0)
+}
+
 const updateItems = (state, bookId, quantity) => {
   const { bookList: { books }, shopingCart: { cartItems } } = state
 
@@ -46,10 +52,12 @@ const updateItems = (state, bookId, quantity) => {
   const item = cartItems[itemIndex]
 
   const newItem = updateCartItem(currentBook, item, quantity)
+  const newItems = updateCartItems(cartItems, newItem, itemIndex)
 
   return {
-    ...state.shopingCart,
-    cartItems: updateCartItems(cartItems, newItem, itemIndex)
+    cartItems: newItems,
+    orderTotal: updateAmountCalc(newItems, 'totalPrice'),
+    quantityInOrder: updateAmountCalc(newItems, 'countItems')
   }
 }
 
@@ -57,7 +65,8 @@ const updateShopingCart = (state, action) => {
   if (state === undefined) {
     return {
       cartItems: [],
-      orderTotal: 300
+      orderTotal: 0,
+      quantityInOrder: 0
     }
   }
 

@@ -1,12 +1,10 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
+import { array, number, func } from 'prop-types'
 import styles from './Cart.module.scss'
-import { addedBooksToCart, removeBookFromCart, removeAllBooksFromCart } from '../../actions'
 import CartItem from './CartItem'
 import Button from '../Button'
 
-const Cart = ({ cartItems, total, onIncrease, onDecrease, onDelete }) => (
+const Cart = ({ cartItems, orderTotal, onIncrease, onDecrease, onDelete }) => (
   <div className={styles.cart}>
     <h2 className={styles.title}>You Order</h2>
 
@@ -35,27 +33,18 @@ const Cart = ({ cartItems, total, onIncrease, onDecrease, onDelete }) => (
       </tbody>
     </table>
 
-    <div className={styles.total}>Total: {total}</div>
+    <div className={styles.total}>Total: {orderTotal}</div>
 
     <Button label="Checkout" />
   </div>
 )
 
 Cart.propTypes = {
-  // PropTypes here
-  myProp: PropTypes.string
+  cartItems: array,
+  total: number,
+  onIncrease: func,
+  onDecrease: func,
+  onDelete: func
 }
 
-Cart.defaultProps = {
-  // defaultProps here
-}
-
-const mapStateToProps = ({ shopingCart: { cartItems, orderTotal } }) => ({ cartItems, orderTotal })
-
-const mapDispatchToProps = {
-  onIncrease: addedBooksToCart,
-  onDecrease: removeBookFromCart,
-  onDelete: removeAllBooksFromCart
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Cart)
+export default Cart
