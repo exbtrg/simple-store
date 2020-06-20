@@ -3,6 +3,7 @@ import { array, number, func } from 'prop-types'
 import styles from './Cart.module.scss'
 import CartItem from './CartItem'
 import Button from '../Button'
+import { moneyToLocaleString } from '../../utils/moneyToLocaleString'
 
 const Cart = ({ cartItems, orderTotal, onIncrease, onDecrease, onDelete }) => (
   <div className={styles.cart}>
@@ -33,7 +34,7 @@ const Cart = ({ cartItems, orderTotal, onIncrease, onDecrease, onDelete }) => (
       </tbody>
     </table>
 
-    <div className={styles.total}>Total: {orderTotal}</div>
+    <div className={styles.total}>Total: {moneyToLocaleString(orderTotal)}</div>
 
     <Button label="Checkout" />
   </div>
