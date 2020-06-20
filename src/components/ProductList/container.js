@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { array, bool, func } from 'prop-types'
 import { connect } from 'react-redux'
 import { compose } from '../../utils/compose'
-import { fetchBooks, addBooksToCard } from '../../actions'
+import { fetchBooks, addedBooksToCart } from '../../actions'
 import withSimpleStoreService from '../../HOC/withSimpleStoreService'
 import Spinner from '../Spinner'
 import ErrorIndicator from '../ErrorIndicator'
@@ -37,11 +37,13 @@ ProductListContainer.propTypes = {
   fetchBooks: func
 }
 
-const mapStateToProps = ({ books, loading, error }) => ({ books, loading, error })
+const mapStateToProps = ({
+  bookList: { books, loading, error }
+}) => ({ books, loading, error })
 
 const mapDispatchToProps = (dispatch, { simpleStoreService }) => ({
   fetchBooks: fetchBooks(dispatch, simpleStoreService),
-  onAddedToCart: (id) => dispatch(addBooksToCard(id))
+  onAddedToCart: (id) => dispatch(addedBooksToCart(id))
 })
 
 export default compose(

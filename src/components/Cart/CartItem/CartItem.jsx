@@ -17,6 +17,8 @@ const CartItem = ({
   onDelete
 }) => (
     <tr className={styles.item}>
+      {console.log(totalPrice, countItems)}
+
       <td>{index}</td>
 
       <td className={styles.adaptive}>{title}</td>
@@ -28,14 +30,14 @@ const CartItem = ({
       <td className={styles.action}>
         <button
           className={cn(styles.button, styles.minus)}
-          onClick={() => onIncrease(id)}
+          onClick={() => onDecrease(id)}
         >
           <MinusIcon />
         </button>
 
         <button
           className={cn(styles.button, styles.plus)}
-          onClick={() => onDecrease(id)}
+          onClick={() => onIncrease(id)}
         >
           <PlusIcon />
         </button>

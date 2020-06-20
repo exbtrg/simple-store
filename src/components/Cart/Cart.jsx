@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import styles from './Cart.module.scss'
+import { addedBooksToCart, removeBookFromCart, removeAllBooksFromCart } from '../../actions'
 import CartItem from './CartItem'
 import Button from '../Button'
 
@@ -23,7 +24,7 @@ const Cart = ({ cartItems, total, onIncrease, onDecrease, onDelete }) => (
       <tbody>
         {cartItems.map((itemData, index) => (
           <CartItem
-            key={itemData.title}
+            key={itemData.id}
             index={index + 1}
             onIncrease={onIncrease}
             onDecrease={onDecrease}
@@ -49,12 +50,12 @@ Cart.defaultProps = {
   // defaultProps here
 }
 
-const mapStateToProps = ({ cartItems, orderTotal }) => ({ cartItems, orderTotal })
+const mapStateToProps = ({ shopingCart: { cartItems, orderTotal } }) => ({ cartItems, orderTotal })
 
-const mapDispatchToProps = (dispatch) => ({
-  onIncrease: (id) => { console.log('INC' + id) },
-  onDecrease: (id) => { console.log('DEC' + id) },
-  onDelete: (id) => { console.log('DEL' + id) }
-})
+const mapDispatchToProps = {
+  onIncrease: addedBooksToCart,
+  onDecrease: removeBookFromCart,
+  onDelete: removeAllBooksFromCart
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart)
