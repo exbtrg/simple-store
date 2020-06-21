@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/simple-store/static/css/main.52a1dbd4.chunk.css",
+    "main.js": "/simple-store/static/js/main.68fe67c8.chunk.js",
+    "main.js.map": "/simple-store/static/js/main.68fe67c8.chunk.js.map",
+    "runtime-main.js": "/simple-store/static/js/runtime-main.3950ab9d.js",
+    "runtime-main.js.map": "/simple-store/static/js/runtime-main.3950ab9d.js.map",
+    "static/js/2.2276b036.chunk.js": "/simple-store/static/js/2.2276b036.chunk.js",
+    "static/js/2.2276b036.chunk.js.map": "/simple-store/static/js/2.2276b036.chunk.js.map",
+    "index.html": "/simple-store/index.html",
+    "precache-manifest.a50c135f75acda164b100cdf30a09f20.js": "/simple-store/precache-manifest.a50c135f75acda164b100cdf30a09f20.js",
+    "service-worker.js": "/simple-store/service-worker.js",
+    "static/css/main.52a1dbd4.chunk.css.map": "/simple-store/static/css/main.52a1dbd4.chunk.css.map",
+    "static/js/2.2276b036.chunk.js.LICENSE.txt": "/simple-store/static/js/2.2276b036.chunk.js.LICENSE.txt",
+    "static/media/404-error.svg": "/simple-store/static/media/404-error.9324e856.svg",
+    "static/media/cart.9eecd032.svg": "/simple-store/static/media/cart.9eecd032.svg",
+    "static/media/minus.3e040463.svg": "/simple-store/static/media/minus.3e040463.svg",
+    "static/media/plus.99ff40a3.svg": "/simple-store/static/media/plus.99ff40a3.svg",
+    "static/media/trash.9ba7cb39.svg": "/simple-store/static/media/trash.9ba7cb39.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3950ab9d.js",
+    "static/js/2.2276b036.chunk.js",
+    "static/css/main.52a1dbd4.chunk.css",
+    "static/js/main.68fe67c8.chunk.js"
+  ]
+}
