@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cn from 'classnames'
 import styles from './CartItem.module.scss'
+import { moneyToLocaleString } from '../../../utils/moneyToLocaleString'
 import { ReactComponent as MinusIcon } from './minus.svg'
 import { ReactComponent as PlusIcon } from './plus.svg'
 import { ReactComponent as TrashIcon } from './trash.svg'
@@ -24,7 +25,7 @@ const CartItem = ({
 
       <td>{countItems}</td>
 
-      <td>{totalPrice}</td>
+      <td>{moneyToLocaleString(totalPrice)}</td>
 
       <td className={styles.action}>
         <button
