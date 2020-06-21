@@ -1,5 +1,5 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 import styles from './App.module.scss'
 import Header from '../Header'
 import ProductList from '../ProductList'
@@ -15,6 +15,8 @@ const App = () => {
         <Route path="/" component={ProductList} exact />
 
         <Route path="/cart" component={Cart} />
+
+        <Redirect to="/" />
       </Switch>
     </main>
   )
